@@ -1,240 +1,49 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的卡通世界 | Fun World</title>
-    <style>
-        /* --- 漫画风格核心设置 --- */
-        :root {
-            --bg-color: #f0f8ff;       /* 浅蓝背景 */
-            --main-yellow: #ffd700;    /* 亮黄 */
-            --main-pink: #ff69b4;      /* 粉色 */
-            --main-blue: #4facfe;      /* 蓝色 */
-            --border-color: #000000;   /* 黑色描边 */
-            --shadow-offset: 4px;      /* 硬阴影偏移量 */
-        }
+<!DOCTYPE HTML>
+<!--
+	Aerial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Aerial by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* 尝试使用卡通字体 */
-        }
+				<!-- Header -->
+					<header id="header">
+						<h1>Adam Jensen</h1>
+						<p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>
+						<nav>
+							<ul>
+								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+								<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+								<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+						</nav>
+					</header>
 
-        body {
-            background-color: var(--bg-color);
-            /* 简单的背景波点纹理 */
-            background-image: radial-gradient(var(--main-blue) 10%, transparent 10%);
-            background-size: 20px 20px;
-            color: #333;
-            padding-bottom: 50px;
-        }
+				<!-- Footer -->
+					<footer id="footer">
+						<span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
+					</footer>
 
-        /* --- 导航栏 --- */
-        nav {
-            background: #fff;
-            border-bottom: 4px solid var(--border-color);
-            padding: 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: var(--main-yellow);
-            padding: 5px 15px;
-            border: 3px solid var(--border-color);
-            box-shadow: 4px 4px 0 var(--border-color);
-            transform: rotate(-2deg); /* 微微倾斜，增加俏皮感 */
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-left: 20px;
-            padding: 8px 15px;
-            border: 2px solid transparent;
-            transition: 0.2s;
-        }
-
-        .nav-links a:hover {
-            background: var(--main-pink);
-            color: #fff;
-            border: 2px solid var(--border-color);
-            border-radius: 10px;
-            box-shadow: 3px 3px 0 var(--border-color);
-        }
-
-        /* --- 主要内容容器 --- */
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* --- Hero 区域 --- */
-        .hero-section {
-            background: #fff;
-            border: 4px solid var(--border-color);
-            border-radius: 20px;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: 8px 8px 0 var(--border-color);
-            margin-bottom: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 0 var(--main-blue);
-        }
-
-        .hero-text {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* 卡通按钮 */
-        .btn {
-            display: inline-block;
-            background: var(--main-blue);
-            color: #fff;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            padding: 15px 40px;
-            border: 4px solid var(--border-color);
-            border-radius: 50px;
-            box-shadow: 6px 6px 0 var(--border-color);
-            transition: all 0.1s;
-            cursor: pointer;
-        }
-
-        .btn:active {
-            transform: translate(4px, 4px); /* 按下效果 */
-            box-shadow: 2px 2px 0 var(--border-color);
-        }
-
-        /* --- 卡片网格 --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .card {
-            background: #fff;
-            border: 4px solid var(--border-color);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 8px 8px 0 var(--border-color);
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* 这里用 Emoji 代替图片，保证100%显示 */
-        .card-icon {
-            font-size: 4rem;
-            display: block;
-            margin-bottom: 15px;
-            text-align: center;
-            background: #eee;
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            line-height: 100px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 3px solid var(--border-color);
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            text-align: center;
-            background: var(--main-yellow);
-            display: inline-block;
-            padding: 5px 10px;
-            border: 2px solid var(--border-color);
-            /* 让标题居中 */
-            display: block; 
-            width: fit-content;
-            margin: 0 auto 15px auto;
-        }
-
-        .card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        /* --- 页脚 --- */
-        footer {
-            margin-top: 60px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* --- 装饰性元素 (纯CSS画的云朵) --- */
-        .cloud {
-            position: absolute;
-            background: #fff;
-            border: 3px solid #000;
-            border-radius: 50px;
-            z-index: 0;
-        }
-        .cloud::after, .cloud::before {
-            content: '';
-            position: absolute;
-            background: #fff;
-            border-top: 3px solid #000;
-            border-left: 3px solid #000; 
-            border-right: 3px solid #000;
-            border-radius: 50%;
-        }
-        
-        /* 定制一些简单的形状 */
-        .c1 { width: 100px; height: 40px; top: 20px; left: 20px; }
-        .c2 { width: 120px; height: 50px; bottom: 30px; right: -20px; }
-
-        @media (max-width: 600px) {
-            .hero-title { font-size: 2.5rem; }
-            .nav-links { display: none; } /* 手机端隐藏菜单 */
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="nav-container">
-            <div class="logo">MOMO's BLOG</div>
-            <div class="nav-links">
-                <a href="#">首页</a>
-                <a href="#">漫画</a>
-                <a href="#">关于</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
+			</div>
+		</div>
+		<script>
+			window.onload = function() { document.body.classList.remove('is-preload'); }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+	</body>
+</html>

@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>浩瀚星空 | Cosmic Universe</title>
+    <title>未来科技 | NextGen Tech</title>
     <style>
-        /* 重置默认样式 */
+        /* --- 全局变量与重置 --- */
+        :root {
+            --primary-color: #2563eb; /* 主色调：蓝色 */
+            --secondary-color: #1e293b; /* 深色文字 */
+            --bg-color: #f8fafc; /* 浅灰背景 */
+            --white: #ffffff;
+            --text-gray: #64748b;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,183 +21,262 @@
         }
 
         body {
-            width: 100vw;
-            height: 100vh;
-            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-            overflow: hidden; /* 防止出现滚动条 */
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--secondary-color);
+            background-color: var(--bg-color);
         }
 
-        /* 画布样式，位于背景最底层 */
-        #universe {
-            position: absolute;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- 导航栏 --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
             top: 0;
-            left: 0;
-            z-index: 1;
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
 
-        /* 中心文字样式 */
-        .content {
-            z-index: 2; /* 在画布之上 */
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* --- Hero 首屏区域 --- */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
             text-align: center;
-            pointer-events: none; /* 让鼠标事件穿透文字，不影响观感 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        h1 {
-            font-size: 4rem;
-            font-weight: 300;
-            letter-spacing: 10px;
-            text-transform: uppercase;
-            animation: glow 3s ease-in-out infinite alternate;
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        p {
-            font-size: 1.2rem;
-            color: #a0a0a0;
-            margin-top: 15px;
-            letter-spacing: 3px;
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
         }
 
-        /* 文字发光动画 */
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073;
-            }
-            to {
-                text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
-            }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-outline {
+            border: 2px solid #e2e8f0;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--secondary-color);
+        }
+
+        /* --- 特性卡片区域 (Grid布局) --- */
+        .features {
+            background-color: var(--white);
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            padding: 2rem;
+            border-radius: 12px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- 关于我们 (图文混排) --- */
+        .about {
+            padding: 5rem 2rem;
+            background-color: #f1f5f9;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background-color: #cbd5e1; /* 占位色 */
+            border-radius: 12px;
+            background-image: url('https://placehold.co/600x400/2563eb/white?text=About+Image');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- 页脚 --- */
+        footer {
+            background-color: var(--secondary-color);
+            color: #94a3b8;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+        }
+
+        /* --- 移动端适配 --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* 移动端暂时隐藏菜单，模拟简化版 */
+            .split-layout { grid-template-columns: 1fr; }
+            .about-image { height: 300px; }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="universe"></canvas>
+    <header>
+        <nav>
+            <div class="logo">NextGen.</div>
+            <ul class="nav-links">
+                <li><a href="#features">产品特性</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#pricing">价格方案</a></li>
+            </ul>
+            <a href="#" class="btn-primary">立即开始</a>
+        </nav>
+    </header>
 
-    <div class="content">
-        <h1>UNIVERSE</h1>
-        <p>探索未知的浩瀚星海</p>
-    </div>
-
-    <script>
-        const canvas = document.getElementById('universe');
-        const ctx = canvas.getContext('2d');
-
-        let width, height;
-        
-        // 调整画布大小
-        function resize() {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        // 星星类
-        class Star {
-            constructor() {
-                this.reset();
-            }
-
-            reset() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 2; // 星星大小
-                this.blinkSpeed = Math.random() * 0.05 + 0.01; // 闪烁速度
-                this.alpha = Math.random(); // 透明度
-                this.alphaDirection = 1; // 1: 变亮, -1: 变暗
-                this.velocity = Math.random() * 0.5; // 移动速度
-            }
-
-            update() {
-                // 闪烁逻辑
-                if (this.alphaDirection === 1) {
-                    this.alpha += this.blinkSpeed;
-                    if (this.alpha >= 1) this.alphaDirection = -1;
-                } else {
-                    this.alpha -= this.blinkSpeed;
-                    if (this.alpha <= 0.2) this.alphaDirection = 1;
-                }
-
-                // 缓慢向上移动效果
-                this.y -= this.velocity;
-                if (this.y < 0) {
-                    this.y = height;
-                    this.x = Math.random() * width;
-                }
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-                ctx.fill();
-            }
-        }
-
-        // 流星类
-        class ShootingStar {
-            constructor() {
-                this.reset();
-            }
-
-            reset() {
-                this.x = Math.random() * width;
-                this.y = 0;
-                this.len = Math.random() * 80 + 10;
-                this.speed = Math.random() * 10 + 6;
-                this.size = Math.random() * 1 + 0.1;
-                // 流星并不总是出现，增加随机延迟
-                this.waitTime = new Date().getTime() + Math.random() * 3000 + 500;
-                this.active = false;
-            }
-
-            update() {
-                if (this.active) {
-                    this.x -= this.speed;
-                    this.y += this.speed;
-                    if (this.x < 0 || this.y > height) {
-                        this.active = false;
-                        this.waitTime = new Date().getTime() + Math.random() * 3000 + 500;
-                    }
-                } else {
-                    if (new Date().getTime() > this.waitTime) {
-                        this.active = true;
-                        this.x = Math.random() * width + 200; // 偏右侧开始
-                        this.y = -this.len;
-                    }
-                }
-            }
-
-            draw() {
-                if (this.active) {
-                    ctx.beginPath();
-                    // 创建流星尾巴渐变
-                    let gradient = ctx.createLinearGradient(this.x, this.y, this.x + this.len, this.y - this.len);
-                    gradient.addColorStop(0, "rgba(255, 255, 255, 1)");
-                    gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
-                    
-                    ctx.strokeStyle = gradient;
-                    ctx.lineWidth = this.size;
-                    ctx.moveTo(this.x, this.y);
-                    ctx.lineTo(this.x + this.len, this.y - this.len);
-                    ctx.stroke();
-                }
-            }
-        }
-
-        // 初始化星星
-        const stars = [];
-        const starCount = 300; // 星星数量
-        for (let i = 0; i < starCount; i++) {
-            stars.push(new Star());
-        }
-
-        // 初始化流星
-        const shootingStars = [];
-        const shootingStarCount = 2; // 同时存在的最大
+    <section class="hero">
+        <h1>构建未来的<br>数字体验</h1>
+        <p>我们提供全方位的技术解决方案，帮助您的企业在数字化浪潮中脱颖而出。极

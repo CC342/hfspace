@@ -114,4 +114,626 @@
 
         .hero {
             /* 替换为高清星空大图 */
-            background: linear-gradient(rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.8)), url('
+            background: linear-gradient(rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=2011&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: #cbd5e1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent);
+            padding: 0.8rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            cursor: pointer;
+            box-shadow: var(--glow);
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            box-shadow: var(--glow);
+        }
+
+        .section-title p {
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(30, 41, 59, 0.7); /* 半透明卡片 */
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: var(--glow);
+        }
+
+        .stat-item i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-shadow: var(--glow);
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #94a3b8;
+        }
+
+        .initiatives {
+            background-color: transparent; /* 透明背景以显示body的星空图 */
+        }
+
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .initiative-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .initiative-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .initiative-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .initiative-card:hover .initiative-img img {
+            transform: scale(1.1);
+        }
+
+        .initiative-content {
+            padding: 2rem;
+        }
+
+        .initiative-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .initiative-content p {
+            margin-bottom: 1.5rem;
+            color: #94a3b8;
+        }
+
+        /* 修改CTA背景为渐变色 */
+        .cta {
+            background: linear-gradient(135deg, var(--secondary), #1e1b4b);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 简单的光效装饰 */
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e2e8f0;
+            position: relative;
+        }
+
+        .cta .btn {
+            background-color: var(--white);
+            color: var(--primary);
+            border-color: var(--white);
+            position: relative;
+            box-shadow: none;
+        }
+
+        .cta .btn:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--white);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+            box-shadow: var(--glow);
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        @media (max-width: 992px) {
+            .about-content { grid-template-columns: 1fr; }
+            .initiatives-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-content { grid-template-columns: repeat(2, 1fr); }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+            nav ul.active { display: flex; }
+            nav ul li { margin: 0; padding: 0.8rem 0; }
+            .mobile-menu { display: block; }
+            .initiatives-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-shuttle-space"></i>
+                <span>Stellar Horizon</span>
+            </div>
+            <nav>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#initiatives">探索项目</a></li>
+                    <li><a href="#get-involved">加入舰队</a></li>
+                    <li><a href="#contact">联系指挥部</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>探索无尽的未知</h1>
+            <p>人类的征途是星辰大海。加入我们，共同揭开宇宙最深处的奥秘。</p>
+            <a href="#get-involved" class="btn">启动引擎</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于 Stellar Horizon</h2>
+                <p>我们是一个致力于深空探测、星际移民研究与外星生态开发的先锋组织。</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1454789548728-85d2696cfb9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Astronaut in space">
+                </div>
+                <div class="about-text">
+                    <h3>我们的使命</h3>
+                    <p>Stellar Horizon 成立于 2035 年，旨在突破人类生存的边界。我们不仅是观测者，更是开拓者。</p>
+                    <p>通过最先进的离子推进技术和量子通讯网络，我们正在构建人类在太阳系外的第一个前哨站。</p>
+                    <p>我们的团队由天体物理学家、前沿工程师和勇敢的宇航员组成，共同为人类的第二家园而奋斗。</p>
+                    <a href="#" class="btn">阅读任务简报</a>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="fas fa-rocket"></i>
+                    <h3 class="counter" data-target="150">0</h3>
+                    <p>次发射任务</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-user-astronaut"></i>
+                    <h3 class="counter" data-target="800">0</h3>
+                    <p>现役宇航员</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-satellite"></i>
+                    <h3 class="counter" data-target="2400">0</h3>
+                    <p>在轨卫星</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-moon"></i>
+                    <h3 class="counter" data-target="3">0</h3>
+                    <p>建立基地</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="initiatives" id="initiatives">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心探索项目</h2>
+                <p>了解我们在太阳系及更远领域的关键行动计划。</p>
+            </div>
+            <div class="initiatives-grid">
+                <div class="initiative-card">
+                    <div class="initiative-img">
+                        <img src="https://images.unsplash.com/photo-1614728853970-32a22507add5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1925&q=80" alt="Mars Colony">
+                    </div>
+                    <div class="initiative-content">
+                        <h3>火星殖民计划</h3>
+                        <p>Red Genesis 项目致力于在 2040 年前在火星建立可自我维持的生态圆顶城市。</p>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="initiative-card">
+                    <div class="initiative-img">
+                        <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&auto=format&fit=crop&w=2050&q=80" alt="Deep Space">
+                    </div>
+                    <div class="initiative-content">
+                        <h3>深空矿产开发</h3>
+                        <p>在小行星带寻找稀有金属和水资源，为星际航行提供就地补给和能源支持。</p>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="initiative-card">
+                    <div class="initiative-img">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="AI Navigation">
+                    </div>
+                    <div class="initiative-content">
+                        <h3>量子导航系统</h3>
+                        <p>利用量子纠缠技术，开发实时的星际通讯与导航网络，消除光速延迟。</p>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="get-involved">
+        <div class="container">
+            <h2>成为星际公民</h2>
+            <p>无论你是科学家、工程师还是梦想家，星辰大海都需要你的力量。立即注册，预定你的船票。</p>
+            <a href="#" class="btn">立即加入</a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Stellar Horizon</h3>
+                    <p>我们将好奇心转化为动力，将科幻小说转化为现实。未来不在地球，而在群星之间。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>快速导航</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#about">关于组织</a></li>
+                        <li><a href="#initiatives">主要任务</a></li>
+                        <li><a href="#get-involved">职业生涯</a></li>
+                        <li><a href="#contact">新闻中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>科研领域</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">天体生物学</a></li>
+                        <li><a href="#">等离子推进</a></li>
+                        <li><a href="#">封闭生态系统</a></li>
+                        <li><a href="#">微重力医疗</a></li>
+                        <li><a href="#">轨道工程学</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系指挥部</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 卡纳维拉尔角, FL, USA</p>
+                    <p><i class="fas fa-satellite-dish"></i> +1 (555) 987-6543</p>
+                    <p><i class="fas fa-envelope"></i> contact@stellar.space</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2050 Stellar Horizon. All rights reserved. Ad Astra.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 保持原有的JS逻辑，功能不需要变
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; 
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+                
+                if(count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(animateCounters, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // 使用 IntersectionObserver 在元素进入视野时才开始动画，体验更好
+        let options = {
+            threshold: 0.5
+        }
+        let observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    animateCounters();
+                    observer.unobserve(entry.target); // 只执行一次
+                }
+            });
+        }, options);
+
+        document.querySelectorAll('.stats').forEach(statSection => {
+            observer.observe(statSection);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    document.querySelector('nav ul').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

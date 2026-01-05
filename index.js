@@ -113,7 +113,6 @@ function handleVlessConnection(ws, msg) {
       if (msg.length < 18) return false;
       let i = msg.slice(17, 18).readUInt8() + 19;
       if (msg.length < i + 3) return false;
-
       const port = msg.slice(i, i += 2).readUInt16BE(0);
       const ATYP = msg.slice(i, i += 1).readUInt8();
       const host = ATYP == 1 ? msg.slice(i, i += 4).join('.') :

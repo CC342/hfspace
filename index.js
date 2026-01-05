@@ -106,24 +106,16 @@ function resolveHost(host) {
 
 // VLE-SS处理
 function handleVlessConnection(ws, msg) {
-  // 添加 try-catch 捕获异常，防止因数据包不完整导致整个程序崩溃
   try {
       const [VERSION] = msg;
       const id = msg.slice(1, 17);
       if (!id.every((v, i) => v == parseInt(uuid.substr(i * 2, 2), 16))) return false;
-      
-      // 增加长度检查：如果 msg 长度甚至不够读出头部长度，直接返回
       if (msg.length < 18) return false;
-
       let i = msg.slice(17, 18).readUInt8() + 19;
-      
-      // 关键修正：在读取端口前检查 msg 长度是否足够
-      if (msg.length < i + 3) return false; // i+2 是端口，i+3 是 ATYP，不够就退出
+      if (msg.length < i + 3) return false;
 
       const port = msg.slice(i, i += 2).readUInt16BE(0);
       const ATYP = msg.slice(i, i += 1).readUInt8();
-      
-      // 这里的解析逻辑保持不变，但都被 try-catch 包裹保护
       const host = ATYP == 1 ? msg.slice(i, i += 4).join('.') :
         (ATYP == 2 ? new TextDecoder().decode(msg.slice(i + 1, i += 1 + msg.slice(i, i + 1).readUInt8())) :
         (ATYP == 3 ? msg.slice(i, i += 16).reduce((s, b, i, a) => (i % 2 ? s.concat(a.slice(i - 1, i + 1)) : s), []).map(b => b.readUInt16BE(0).toString(16)).join(':') : ''));
@@ -147,8 +139,6 @@ function handleVlessConnection(ws, msg) {
       
       return true;
   } catch (e) {
-      // 捕获到越界错误，返回 false 让外部逻辑关闭连接，而不是崩溃
-      // console.log("VLESS Parse error (ignored):", e.message); 
       return false;
   }
 }

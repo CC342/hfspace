@@ -1,191 +1,390 @@
 <!DOCTYPE HTML>
-<!--
-	Hielo by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-	<head>
-		<title>Hielo by TEMPLATED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
+<html lang="zh-CN">
+    <head>
+        <title>Hielo - 卡通星空版</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <style>
+            /* --- 核心重置 --- */
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            
+            :root {
+                --dark-bg: #1a1a2e;
+                --card-bg: #ffffff;
+                --primary: #ffd700; /* 卡通黄 */
+                --accent: #ff6b6b;  /* 卡通红 */
+                --blue: #4facfe;    /* 卡通蓝 */
+                --border: 3px solid #000; /* 漫画粗边框 */
+                --shadow: 6px 6px 0px #000; /* 硬阴影 */
+            }
 
-		<!-- Header -->
-			<header id="header" class="alt">
-				<div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div>
-				<a href="#menu">Menu</a>
-			</header>
+            body {
+                font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* 卡通字体 */
+                background-color: var(--dark-bg);
+                color: #333;
+                line-height: 1.6;
+                /* 星空背景纹理 */
+                background-image: 
+                    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px);
+                background-size: 550px 550px, 350px 350px;
+                background-position: 0 0, 40px 60px;
+            }
 
-		<!-- Nav -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
-				</ul>
-			</nav>
+            a { text-decoration: none; color: inherit; transition: 0.2s; }
+            ul { list-style: none; }
 
-		<!-- Banner -->
-			<section class="banner full">
-				<article>
-					<img src="images/slide01.jpg" alt="" />
-					<div class="inner">
-						<header>
-							<p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
-							<h2>Hielo</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="images/slide02.jpg" alt="" />
-					<div class="inner">
-						<header>
-							<p>Lorem ipsum dolor sit amet nullam feugiat</p>
-							<h2>Magna etiam</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="images/slide03.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>Sed cursus aliuam veroeros lorem ipsum nullam</p>
-							<h2>Tempus dolor</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="images/slide04.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>Adipiscing lorem ipsum feugiat sed phasellus consequat</p>
-							<h2>Etiam feugiat</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="images/slide05.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>Ipsum dolor sed magna veroeros lorem ipsum</p>
-							<h2>Lorem adipiscing</h2>
-						</header>
-					</div>
-				</article>
-			</section>
+            /* --- Header --- */
+            #header {
+                background: #fff;
+                border-bottom: var(--border);
+                padding: 1rem 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
 
-		<!-- One -->
-			<section id="one" class="wrapper style2">
-				<div class="inner">
-					<div class="grid-style">
+            .logo a {
+                font-size: 1.5rem;
+                font-weight: 900;
+                background: var(--primary);
+                padding: 5px 15px;
+                border: var(--border);
+                box-shadow: 3px 3px 0 #000;
+                transform: rotate(-2deg);
+                display: inline-block;
+            }
+            .logo span { font-weight: 400; font-size: 0.8rem; margin-left: 5px; }
 
-						<div>
-							<div class="box">
-								<div class="image fit">
-									<img src="images/pic02.jpg" alt="" />
-								</div>
-								<div class="content">
-									<header class="align-center">
-										<p>maecenas sapien feugiat ex purus</p>
-										<h2>Lorem ipsum dolor</h2>
-									</header>
-									<p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-									<footer class="align-center">
-										<a href="#" class="button alt">Learn More</a>
-									</footer>
-								</div>
-							</div>
-						</div>
+            /* 导航菜单 */
+            #menu .links { display: flex; gap: 20px; }
+            #menu .links li a {
+                font-weight: bold;
+                padding: 5px 10px;
+                border: 2px solid transparent;
+            }
+            #menu .links li a:hover {
+                background: var(--blue);
+                color: #fff;
+                border: 2px solid #000;
+                border-radius: 5px;
+            }
 
-						<div>
-							<div class="box">
-								<div class="image fit">
-									<img src="images/pic03.jpg" alt="" />
-								</div>
-								<div class="content">
-									<header class="align-center">
-										<p>mattis elementum sapien pretium tellus</p>
-										<h2>Vestibulum sit amet</h2>
-									</header>
-									<p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-									<footer class="align-center">
-										<a href="#" class="button alt">Learn More</a>
-									</footer>
-								</div>
-							</div>
-						</div>
+            /* --- Banner (原来是轮播图，现在改为CSS动画星空Hero) --- */
+            .banner {
+                position: relative;
+                height: 500px;
+                background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                overflow: hidden;
+                border-bottom: var(--border);
+            }
 
-					</div>
-				</div>
-			</section>
+            /* 模拟轮播图内容的容器 */
+            .banner article {
+                position: relative;
+                z-index: 2;
+                max-width: 800px;
+                padding: 20px;
+            }
 
-		<!-- Two -->
-			<section id="two" class="wrapper style3">
-				<div class="inner">
-					<header class="align-center">
-						<p>Nam vel ante sit amet libero scelerisque facilisis eleifend vitae urna</p>
-						<h2>Morbi maximus justo</h2>
-					</header>
-				</div>
-			</section>
+            .banner h2 {
+                font-size: 4rem;
+                color: #fff;
+                text-shadow: 4px 4px 0 #000;
+                margin-bottom: 10px;
+            }
 
-		<!-- Three -->
-			<section id="three" class="wrapper style2">
-				<div class="inner">
-					<header class="align-center">
-						<p class="special">Nam vel ante sit amet libero scelerisque facilisis eleifend vitae urna</p>
-						<h2>Morbi maximus justo</h2>
-					</header>
-					<div class="gallery">
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic01.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic02.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic03.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic04.jpg" alt="" /></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+            .banner p {
+                font-size: 1.5rem;
+                color: var(--primary);
+                font-weight: bold;
+                background: rgba(0,0,0,0.5);
+                display: inline-block;
+                padding: 5px 15px;
+                border-radius: 20px;
+            }
 
+            /* 装饰性月亮 */
+            .moon-deco {
+                position: absolute;
+                top: 50px; right: 50px;
+                font-size: 8rem;
+                animation: float 3s infinite ease-in-out alternate;
+            }
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="container">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					</ul>
-				</div>
-				<div class="copyright">
-					&copy; Untitled. All rights reserved.
-				</div>
-			</footer>
+            /* --- Wrapper Styles --- */
+            .wrapper { padding: 4rem 0; }
+            
+            .inner {
+                width: 90%;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+            .align-center { text-align: center; }
 
-	</body>
+            /* --- Section One (图文混排) --- */
+            .style2 { background-color: #fffcf0; } /* 米色背景 */
+
+            .grid-style {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 3rem;
+            }
+
+            .box {
+                background: #fff;
+                border: var(--border);
+                box-shadow: var(--shadow);
+                border-radius: 10px;
+                overflow: hidden;
+                transition: transform 0.2s;
+            }
+            .box:hover { transform: translateY(-5px); }
+
+            .image.fit {
+                width: 100%;
+                height: 250px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 5rem;
+                border-bottom: var(--border);
+            }
+            
+            /* CSS生成背景图，替代 pic02.jpg */
+            .bg-1 { background: #ffeaa7; color: #fdcb6e; }
+            .bg-2 { background: #fab1a0; color: #e17055; }
+
+            .content { padding: 2rem; }
+            .content header p { color: #888; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+            .content h2 { font-size: 1.8rem; margin: 0.5rem 0 1rem; }
+            
+            .button {
+                display: inline-block;
+                background: var(--primary);
+                color: #000;
+                padding: 10px 30px;
+                border: var(--border);
+                box-shadow: 3px 3px 0 #000;
+                font-weight: bold;
+                margin-top: 1rem;
+            }
+            .button:hover { background: #fff; transform: translate(2px, 2px); box-shadow: 1px 1px 0 #000; }
+
+            /* --- Section Two (纯文字) --- */
+            .style3 {
+                background: var(--blue);
+                color: #fff;
+                border-top: var(--border);
+                border-bottom: var(--border);
+            }
+            .style3 h2 { font-size: 2.5rem; text-shadow: 3px 3px 0 #000; }
+
+            /* --- Section Three (相册画廊) --- */
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+            
+            .gallery .image.fit {
+                height: 200px;
+                border: var(--border);
+                box-shadow: var(--shadow);
+                border-radius: 10px;
+                font-size: 3rem;
+                background: #fff;
+            }
+            .gallery .image.fit:hover { transform: scale(1.05); }
+
+            /* 画廊占位符 */
+            .g-1 { background: #55efc4; }
+            .g-2 { background: #81ecec; }
+            .g-3 { background: #74b9ff; }
+            .g-4 { background: #a29bfe; }
+
+            /* --- Footer --- */
+            #footer {
+                background: #000;
+                color: #fff;
+                padding: 4rem 0;
+                text-align: center;
+            }
+            
+            .icons { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+            .icon {
+                font-size: 1.5rem;
+                width: 50px; height: 50px;
+                line-height: 50px;
+                background: #333;
+                border-radius: 50%;
+                transition: 0.3s;
+            }
+            .icon:hover { background: var(--primary); color: #000; transform: rotate(20deg); }
+
+            /* 移动端菜单按钮 */
+            .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+            /* --- 响应式适配 --- */
+            @media screen and (max-width: 768px) {
+                #menu .links { display: none; } /* 手机端隐藏菜单 */
+                .menu-toggle { display: block; }
+                .banner h2 { font-size: 2.5rem; }
+                .gallery { grid-template-columns: 1fr 1fr; }
+            }
+            
+            @keyframes float {
+                from { transform: translateY(0); }
+                to { transform: translateY(-20px); }
+            }
+        </style>
+    </head>
+    <body>
+
+        <header id="header">
+            <div class="logo"><a href="index.html">Hielo <span>星空重制版</span></a></div>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <nav id="menu">
+                <ul class="links">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">漫画</a></li>
+                    <li><a href="#">组件</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="banner">
+            <div class="moon-deco">🌙</div>
+            <article>
+                <div class="inner">
+                    <header>
+                        <p>A free responsive web site template by TEMPLATED</p>
+                        <h2>Hielo Space</h2>
+                    </header>
+                </div>
+            </article>
+        </section>
+
+        <section id="one" class="wrapper style2">
+            <div class="inner">
+                <div class="grid-style">
+
+                    <div>
+                        <div class="box">
+                            <div class="image fit bg-1">
+                                🚀
+                            </div>
+                            <div class="content">
+                                <header class="align-center">
+                                    <p>探索未知</p>
+                                    <h2>星际旅行指南</h2>
+                                </header>
+                                <p>这里原本是一张照片，但我用 CSS 把它变成了永远不会丢失的火箭图标。准备好起飞了吗？</p>
+                                <footer class="align-center">
+                                    <a href="#" class="button">查看详情</a>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="box">
+                            <div class="image fit bg-2">
+                                👽
+                            </div>
+                            <div class="content">
+                                <header class="align-center">
+                                    <p>发现生命</p>
+                                    <h2>外星人邻居</h2>
+                                </header>
+                                <p>Hielo 模版原本很素雅，但加上粗边框和亮色阴影后，它立刻变成了一个有趣的漫画网站。</p>
+                                <footer class="align-center">
+                                    <a href="#" class="button">打个招呼</a>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="two" class="wrapper style3">
+            <div class="inner">
+                <header class="align-center">
+                    <p>这是一个纯色过渡区域</p>
+                    <h2>即使没有背景图，大色块也很好看</h2>
+                </header>
+            </div>
+        </section>
+
+        <section id="three" class="wrapper style2">
+            <div class="inner">
+                <header class="align-center">
+                    <p class="special">作品展示墙</p>
+                    <h2>我的创意集锦</h2>
+                </header>
+                <div class="gallery">
+                    <div>
+                        <div class="image fit g-1">🎮</div>
+                    </div>
+                    <div>
+                        <div class="image fit g-2">🎨</div>
+                    </div>
+                    <div>
+                        <div class="image fit g-3">👾</div>
+                    </div>
+                    <div>
+                        <div class="image fit g-4">🎹</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <div class="container">
+                <ul class="icons">
+                    <li><a href="#" class="icon"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" class="icon"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#" class="icon"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#" class="icon"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                &copy; Hielo Template. Remixed with Cartoon Style.
+            </div>
+        </footer>
+
+        <script>
+            // 简单的手机菜单切换逻辑
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                const menu = document.querySelector('#menu .links');
+                if (menu.style.display === 'flex') {
+                    menu.style.display = 'none';
+                } else {
+                    menu.style.display = 'flex';
+                    menu.style.flexDirection = 'column';
+                    menu.style.position = 'absolute';
+                    menu.style.top = '60px';
+                    menu.style.right = '0';
+                    menu.style.background = '#fff';
+                    menu.style.width = '100%';
+                    menu.style.padding = '20px';
+                    menu.style.borderBottom = '3px solid black';
+                }
+            });
+        </script>
+
+    </body>
 </html>
